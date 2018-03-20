@@ -1,7 +1,7 @@
 let pickHour = document.getElementById("hour").value;
 let pickMin = document.getElementById("minute").value;
 let pickAP = document.getElementById("ampm").value;
-let output = document.querySelector("body");
+let output = document.getElementById("output-text")
 let zzz = document.getElementById("now");
 
 let hoursNow = new Date().getHours();
@@ -11,7 +11,6 @@ let minutesTab = [];
 
 //Kalkulacja cyklów na podstawie obecnego czasu
 function cycles() {
-  output.innerHTML = null;
   for (let i = 1; i < 7; i++) {
     let cycleHour = 0;
     let cycleMinute = 0;

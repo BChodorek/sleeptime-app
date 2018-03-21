@@ -4,28 +4,37 @@ let pickAP = document.getElementById("ampm").value;
 let output = document.getElementById("output-text")
 let zzz = document.getElementById("now");
 
-let hoursNow = new Date().getHours();
+let hourNow = new Date().getHours();
 let minutesNow = new Date().getMinutes();
 
-let hourTab = [];
-let minutesTab = [];
+let hourTab = [1, 3, 4, 6, 7, 9];
+let minutesTab = [30, 00];
 
 //Kalkulacja cyklów na podstawie obecnego czasu
 function cycles() {
-
-  hoursNow = new Date().getHours();
-  minutesNow = new Date().getMinutes();
   output.innerHTML = null;
+  for (let i = 0; i < hourTab.length; i++) {
 
-  for (let i = 1; i < 7; i++) {
     let cycleHour = 0;
-    let cycleMinute = 0;
+    let cycleMinutes = 0;
+    cycleHour += ((hourNow + hourTab[i]) % 24);
+    cycleMinutes += (minutesNow + minutesTab[i % 2] + 14);
 
-    cycleHour += ((hoursNow + i) % 24);
-    cycleMinute += ((minutesNow + (i * 30) + 15) % 60);
-    hourTab.push(cycleHour);
-    minutesTab.push(cycleMinute);
-    output.innerHTML += 'Godzina pobudki:  ' + hourTab[i - 1] + ':' + minutesTab[i - 1] + '' + ". " + ' ' + ' Ilość cykli: ' + [i] + '<br>';
+    function formatFix() {
+      if (cycleMinutes >= 60) {
+        cycleHour += 1;
+        cycleMinutes = cycleMinutes % 60;
+      }
+
+      if (cycleHour < 10) {
+        cycleHour = '0' + cycleHour;
+      }
+      if (cycleMinutes < 10) {
+        cycleMinutes = '0' + cycleMinutes;
+      }
+    }
+    formatFix();
+    output.innerHTML += 'Godzina pobudki:  ' + cycleHour + ':' + cycleMinutes + ". " + ' ' + ' Ilość cykli: ' + [i] + '<br>';
   }
 };
 

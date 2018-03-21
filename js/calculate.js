@@ -13,6 +13,8 @@ let minutesTab = [30, 00];
 //Kalkulacja cyklów na podstawie obecnego czasu
 function cycles() {
   output.innerHTML = null;
+  hoursNow = new Date().getHours();
+  minutesNow = new Date().getMinutes();
   for (let i = 0; i < hourTab.length; i++) {
 
     let cycleHour = 0;
@@ -33,6 +35,7 @@ function cycles() {
         cycleMinutes = '0' + cycleMinutes;
       }
     }
+
     formatFix();
     output.innerHTML += 'Godzina pobudki:  ' + cycleHour + ':' + cycleMinutes + ". " + ' ' + ' Ilość cykli: ' + [i] + '<br>';
   }

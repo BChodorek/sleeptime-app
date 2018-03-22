@@ -68,6 +68,6 @@ function calculate() {
 };
 buttonCount.addEventListener('click', calculate);
 
-/* !In variable 'time'(line 74) I convert selected hour and minute to milliseconds 
-    and I also add 15 hours, because here program have to calculate last 4 cycles of sleep
-    so it's easier to add 15 hours and then count the intervals instead of going backwards with the intervals */
+/* !In a variable 'time'(line 74) I convert selected hour and minute to milliseconds 
+    and I also add 15 hours, because here program have to calculate last 4 cycles of sleep.
+    So it's easier to add 15 hours and then count the intervals instead of going backwards with the intervals. */

@@ -1,7 +1,7 @@
 let output = document.getElementById("output-text");
 let buttonCount = document.getElementById("calculate-button");
-let pickHour = document.getElementById("hour").selectedIndex;
-let pickMin = document.getElementById("minute").value;
+let pickHour = document.getElementById("hour");
+let pickMin = document.getElementById("minute");
 let zzz = document.getElementById("now");
 
 let now = new Date();
@@ -9,14 +9,18 @@ let interval = 5400000; //one cycle = 1,5h - in milliseconds
 let hours;
 let mins;
 
-//Rounding the milliseconds outcome
+//Rounding milliseconds outcome when getting time
 function rounding() {
   hours = Math.ceil((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   mins = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
 }
+//Rounding milliseconds outcome when setting the time see: calculate() 
+function roundingSet() {
+  hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  mins = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
+}
 //Fixing the data format after calculations 
 function formatFix() {
-
   if (mins >= 60) {
     hours += 1;
     mins %= 60;
@@ -39,7 +43,7 @@ function countCycles() {
   for (let i = 0; i < 6; i++) {
     now = new Date(now.getTime() + interval);
     rounding();
-    mins += 14; //It takes 14 minutes in average 
+    mins += 14; //It takes 14 minutes in average to fall asleep
     formatFix();
     output.innerHTML += 'Number of cycles: ' + [i + 1] + '<br>' + 'Wake up hour:  ' + hours + ":" + mins + '<br>' + "<br>";
   }
@@ -51,18 +55,18 @@ function calculate() {
   output.innerHTML = null;
   pickHour = document.getElementById("hour").selectedIndex;
   pickMin = document.getElementById("minute").value;
-
-  if (pickHour === '0' || pickMin === '') {
+  if (pickHour < 0 || pickMin === '') {
     alert("ERROR. Pick the correct values.")
   } else {
-    let time = pickHour * 3600000 + pickMin * 60000 + 54000000; //! explanation at the bottom
+    let time = pickHour * 3600000 + pickMin * 60000; //+ 54000000; //! explanation at the bottom
     output.innerHTML += "It would be best if you fall asleep at one the of following hours: " + "<br>";
-    now = new Date().setTime(0); //setting time to 0 milliseconds
-    now += time; //setting current time to be just the Hour and Minute user chose
+    now = new Date().setTime(0) + time + 54000000; //setting time to 0 milliseconds
+    //    now += time; //setting current time to be just the Hour and Minute user chose
     for (let i = 0; i < 4; i++) {
-      formatFix1();
+      roundingSet();
+      formatFix();
       output.innerHTML += hours + ":" + mins + "<br>";
-      now += interval
+      now += interval;
     }
   }
 };

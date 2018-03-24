@@ -9,17 +9,17 @@ let interval = 5400000; //one cycle = 1,5h - in milliseconds
 let hours;
 let mins;
 
-//Rounding milliseconds outcome when getting time
+//Rounding milliseconds when getting the time
 function rounding() {
   hours = Math.ceil((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   mins = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
 }
-//Rounding milliseconds outcome when setting the time see: calculate() 
+//Rounding milliseconds when setting the time see: calculate() 
 function roundingSet() {
   hours = Math.floor((now % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   mins = Math.floor((now % (1000 * 60 * 60)) / (1000 * 60));
 }
-//Fixing the data format after calculations 
+//Fixing the date format after calculations 
 function formatFix() {
   if (mins >= 60) {
     hours += 1;
@@ -58,10 +58,10 @@ function calculate() {
   if (pickHour < 0 || pickMin === '') {
     alert("ERROR. Pick the correct values.")
   } else {
-    let time = pickHour * 3600000 + pickMin * 60000; //+ 54000000; //! explanation at the bottom
+    let time = pickHour * 3600000 + pickMin * 60000;
     output.innerHTML += "It would be best if you fall asleep at one the of following hours: " + "<br>";
-    now = new Date().setTime(0) + time + 54000000; //setting time to 0 milliseconds
-    //    now += time; //setting current time to be just the Hour and Minute user chose
+    now = new Date().setTime(0) + time + 54000000; /*setting time to 0 milliseconds, adding the Hour and Minute user chose
+                                                     and 15 hours*(there's an explanation below why)*/
     for (let i = 0; i < 4; i++) {
       roundingSet();
       formatFix();
@@ -72,6 +72,5 @@ function calculate() {
 };
 buttonCount.addEventListener('click', calculate);
 
-/* !In a variable 'time'(line 74) I convert selected hour and minute to milliseconds 
-    and I also add 15 hours, because here program have to calculate last 4 cycles of sleep.
+/*  I add 15 hours to the time picked by user, because here program have to calculate last 4 cycles of sleep.
     So it's easier to add 15 hours and then count the intervals instead of going backwards with the intervals. */

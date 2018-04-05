@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-image: url(../background.jpg);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+}
+
+.head h1 {
+  font-weight: 500;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.head p {
+  text-align: center;
+  margin: 40px 0 15px 0;
+  font-weight: 400;
+}
+
+.container {
+  height: 40px;
+  margin-bottom: 50px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.container:last-child {
+  flex-wrap: wrap;
+}
+
+#hour {
+  height: 40px;
+  width: 80px;
+  margin-right: 5px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  transition: 0.2s ease;
+
+}
+
+#minute {
+  height: 40px;
+  width: 100px;
+  margin: 0 5px 0 5px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  transition: 0.2s ease;
+
+}
+
+#calculate-button {
+  height: 40px;
+  margin-left: 5px;
+  background: transparent;
+  color: #fff;
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border: solid #d9f1ff 2px;
+  text-decoration: none;
+  transition: 0.2s ease;
+
+}
+
+#calculate-button:hover {
+  text-decoration: none;
+  border-color: #2885ff;
+}
+
+#hour:hover:active {
+  border-color: #2885ff;
+}
+
+#minute:hover:active {
+  border-color: #2885ff;
+}
+
+.now {
+  text-align: center;
+}
+
+#now {
+  height: 40px;
+  margin: 10px 0 0 5px;
+  background: transparent;
+  color: #fff;
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border: solid #d9f1ff 2px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+#now:hover {
+  text-decoration: none;
+  border-color: #2885ff;
+}
+
+#output-text {
+  text-align: center;
+  margin: 50px 10px 20px 10px;
+  font-size: 18px;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+}
+
+footer h4 {
+  text-align: center;
+  font-size: 10px;
+}

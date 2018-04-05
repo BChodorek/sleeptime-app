@@ -41,8 +41,9 @@ main {
   justify-content: center;
 }
 
-.container:last-child {
-  flex-wrap: wrap;
+section option {
+  background-color: black;
+  color: black;
 }
 
 #hour {
@@ -54,7 +55,10 @@ main {
   border: 2px solid #fff;
   border-radius: 6px;
   transition: 0.2s ease;
+}
 
+#hour option:not(disabled) {
+  background: #000;
 }
 
 #minute {
@@ -68,6 +72,11 @@ main {
   transition: 0.2s ease;
 
 }
+
+#minute option:not(disabled) {
+  background: #000;
+}
+
 
 #calculate-button {
   height: 40px;

@@ -1,21 +1,27 @@
 @charset "UTF-8";
 
-html,
-body {
+html {
+  position: relative;
+  min-height: 100%;
   height: 100%;
+  width: 100%;
+  background-image: url(../background.jpg);
 }
 
 body {
-  background-image: url(../background.jpg);
   color: #fff;
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 30px;
+  min-height: 100%;
+  height: auto;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  position: absolute;
+
 }
 
 main {
   width: 100%;
   min-height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -37,8 +43,9 @@ main {
   height: 40px;
   margin-bottom: 50px;
   display: flex;
-  align-content: center;
+  align-items: baseline;
   justify-content: center;
+  align-content: center;
 }
 
 section option {
@@ -49,7 +56,7 @@ section option {
 #hour {
   height: 40px;
   width: 80px;
-  margin-right: 5px;
+  margin-right: 8px;
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
@@ -64,12 +71,13 @@ section option {
 #minute {
   height: 40px;
   width: 100px;
-  margin: 0 5px 0 5px;
+  margin: auto;
   background-color: transparent;
   color: #fff;
   border: 2px solid #fff;
   border-radius: 6px;
   transition: 0.2s ease;
+
 
 }
 
@@ -80,16 +88,17 @@ section option {
 
 #calculate-button {
   height: 40px;
-  margin-left: 5px;
   background: transparent;
   color: #fff;
-  -webkit-border-radius: 8;
-  -moz-border-radius: 8;
-  border-radius: 8px;
   font-family: Arial;
   color: #ffffff;
   padding: 10px 20px 10px 20px;
   border: solid #d9f1ff 2px;
+
+  border-radius: 6px;
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+
   text-decoration: none;
   transition: 0.2s ease;
 
@@ -114,7 +123,7 @@ section option {
 
 #now {
   height: 40px;
-  margin: 10px 0 0 5px;
+  margin: 10px 0;
   background: transparent;
   color: #fff;
   -webkit-border-radius: 8;
@@ -131,19 +140,22 @@ section option {
 #now:hover {
   text-decoration: none;
   border-color: #2885ff;
+  color: #d9f1ff;
 }
 
 #output-text {
   text-align: center;
-  margin: 50px 10px 20px 10px;
+  margin: 30px 10px 20px 10px;
   font-size: 18px;
 }
 
+
 footer {
-  bottom: 0;
-  left: 0;
+  margin-top: 10px;
+  bottom: 0px;
   width: 100%;
   position: absolute;
+
 }
 
 footer h4 {

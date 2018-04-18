@@ -118,6 +118,7 @@ section option {
 }
 
 .now {
+  margin: 0 4px 0 4px;
   text-align: center;
 }
 
@@ -146,7 +147,7 @@ section option {
 #output-text {
   text-align: center;
   margin: 30px 10px 20px 10px;
-  font-size: 18px;
+  font-size: 22px;
 }
 
 

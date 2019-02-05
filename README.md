@@ -1,7 +1,7 @@
-# https://lewpustelnik.github.io/sleeptime-app/
 # sleeptime-app
+[Demo](https://bchodorek.github.io/sleeptime-app/)  
 
- JS app that counts wake up time and when to go to bed according to sleep cycles.
+JS app that counts wake up time and when to go to bed according to sleep cycles.
 
 One sleep cycle lasts approximately 1 hour and 30 minutes. Waking up in the middle of a cycle won't make you feel refreshed and rested. 
 
